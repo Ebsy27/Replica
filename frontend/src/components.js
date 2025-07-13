@@ -14,10 +14,7 @@ import {
   ArrowRight,
   Check,
   Menu,
-  X,
-  GitHub,
-  Twitter,
-  Linkedin
+  X
 } from "lucide-react";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
