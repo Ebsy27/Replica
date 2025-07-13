@@ -3,40 +3,21 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { 
   Homepage, 
-  ChatInterface, 
-  ProjectView 
+  BuilderInterface 
 } from "./components";
 
 function App() {
-  const [currentProject, setCurrentProject] = useState(null);
-
   return (
     <div className="App bg-black min-h-screen">
       <BrowserRouter>
         <Routes>
           <Route 
             path="/" 
-            element={
-              <Homepage 
-                onProjectCreate={setCurrentProject} 
-              />
-            } 
+            element={<Homepage />} 
           />
           <Route 
-            path="/chat" 
-            element={
-              <ChatInterface 
-                onProjectCreate={setCurrentProject} 
-              />
-            } 
-          />
-          <Route 
-            path="/project/:id" 
-            element={
-              <ProjectView 
-                project={currentProject} 
-              />
-            } 
+            path="/build" 
+            element={<BuilderInterface />} 
           />
         </Routes>
       </BrowserRouter>
