@@ -25,45 +25,19 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import copy from 'copy-to-clipboard';
 
-// Groq API integration
-const GROQ_API_KEY = "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";
+// API configuration
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
-// Groq API function to generate code
+// Function to generate code using backend API
 const generateCodeWithGroq = async (prompt) => {
   try {
-    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+    const response = await fetch(`${BACKEND_URL}/api/generate-code`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${GROQ_API_KEY}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        messages: [
-          {
-            role: "system",
-            content: `You are an expert React developer. Generate a complete, production-ready React application based on the user's request. 
-
-IMPORTANT REQUIREMENTS:
-1. Generate a COMPLETE functional React application, not just a landing page
-2. Include all necessary components, state management, and functionality
-3. Use modern React hooks (useState, useEffect, etc.)
-4. Include proper styling with Tailwind CSS classes
-5. Make it fully interactive and functional
-6. Include realistic data and content relevant to the request
-7. Add proper error handling and loading states
-8. Make it responsive for mobile and desktop
-
-Return ONLY the complete React component code without any explanations. The code should be production-ready and fully functional.`
-          },
-          {
-            role: "user",
-            content: `Create a ${prompt}. Make it fully functional with all features working, realistic data, proper navigation, and complete user interface. Include all necessary React hooks and state management.`
-          }
-        ],
-        model: "mixtral-8x7b-32768",
-        temperature: 0.7,
-        max_tokens: 4000,
-        stream: false
+        prompt: prompt
       })
     });
 
@@ -72,7 +46,7 @@ Return ONLY the complete React component code without any explanations. The code
     }
 
     const data = await response.json();
-    return data.choices[0].message.content;
+    return data.code;
   } catch (error) {
     console.error('Error generating code:', error);
     throw error;
