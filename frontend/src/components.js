@@ -454,9 +454,9 @@ export const Footer = () => {
               Create apps and websites by chatting with AI. The fastest way to build modern web applications.
             </p>
             <div className="flex space-x-4">
-              <GitHub className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
-              <Twitter className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
-              <Linkedin className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
+              <div className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors">📧</div>
+              <div className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors">🐦</div>
+              <div className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors">💼</div>
             </div>
           </div>
 
