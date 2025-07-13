@@ -5,10 +5,11 @@
   "dependencies": {
     "@headlessui/react": "^2.2.4",
     "@monaco-editor/react": "^4.7.0",
-    "axios": "^1.8.4",
+    "axios": "^1.10.0",
     "copy-to-clipboard": "^3.3.3",
     "cra-template": "1.2.0",
     "framer-motion": "^12.23.3",
+    "groq-sdk": "^0.27.0",
     "lucide-react": "^0.525.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
